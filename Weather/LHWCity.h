@@ -10,4 +10,7 @@
 
 @interface LHWCity : NSObject
 
+@property (nonatomic) NSString *cityName;
+@property (nonatomic) NSString *condition;
+
 @end

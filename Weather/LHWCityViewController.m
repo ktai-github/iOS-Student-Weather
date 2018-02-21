@@ -27,9 +27,9 @@
 
 - (void)showWeatherDetails {
   LHWDetailedViewController *detailedVC = [[LHWDetailedViewController alloc] init];
-  detailedVC.currentTemp = 20;
-  detailedVC.chanceOfPrecip = 50;
-  detailedVC.currentTime = [NSDate date];
+//  detailedVC.currentTemp = 20;
+//  detailedVC.chanceOfPrecip = 50;
+//  detailedVC.currentTime = [NSDate date];
   [self.navigationController pushViewController:detailedVC animated:YES];
   
 }

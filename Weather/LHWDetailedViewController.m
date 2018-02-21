@@ -23,7 +23,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (instancetype)init
+{
+  self = [super init];
+  if (self) {
+    self.currentTemp = 20;
+    self.chanceOfPrecip = 50;
+    self.currentTime = [NSDate date];
+  }
+  return self;
+}
 /*
 #pragma mark - Navigation
 
