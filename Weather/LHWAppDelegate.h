@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LHWCity.h"
+#import "LHWCityViewController.h"
 
 @interface LHWAppDelegate : UIResponder <UIApplicationDelegate>
 

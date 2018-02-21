@@ -22,11 +22,25 @@
   LHWCity *dubai = [[LHWCity alloc] init];
   LHWCity *london = [[LHWCity alloc] init];
   LHWCity *tokyo = [[LHWCity alloc] init];
-  
+
   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
   UITabBarController *rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
   [[UIApplication sharedApplication].keyWindow setRootViewController:rootViewController];
   
+  LHWCityViewController *vancouverVC = [[LHWCityViewController alloc] init];
+  LHWCityViewController *losAngelesVC = [[LHWCityViewController alloc] init];
+  LHWCityViewController *dubaiVC = [[LHWCityViewController alloc] init];
+  LHWCityViewController *londonVC = [[LHWCityViewController alloc] init];
+  LHWCityViewController *tokyoVC = [[LHWCityViewController alloc] init];
+  
+  UINavigationController *vancouverNC = [[UINavigationController alloc] initWithRootViewController:vancouverVC];
+  UINavigationController *losAngelesNC = [[UINavigationController alloc] initWithRootViewController:losAngelesVC];
+  UINavigationController *dubaiNC = [[UINavigationController alloc] initWithRootViewController:dubaiVC];
+  UINavigationController *londonNC = [[UINavigationController alloc] initWithRootViewController:londonVC];
+  UINavigationController *tokyoNC = [[UINavigationController alloc] initWithRootViewController:tokyoVC];
+  
+  rootViewController.viewControllers = [NSArray arrayWithObjects:vancouverNC, losAngelesNC, dubaiNC, londonNC, tokyoNC, nil];
+
     [self.window makeKeyAndVisible];
     return YES;
 }
