@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "LHWCity.h"
 #import "LHWCityViewController.h"
+#import "LHWDetailedViewController.h"
 
-@interface LHWAppDelegate : UIResponder <UIApplicationDelegate>
+@interface LHWAppDelegate : UIResponder <UIApplicationDelegate,UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

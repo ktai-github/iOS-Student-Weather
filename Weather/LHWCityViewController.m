@@ -8,6 +8,7 @@
 
 #import "LHWCityViewController.h"
 #import "LHWDetailedViewController.h"
+#import "LHWCity.h"
 
 @interface LHWCityViewController ()
 
@@ -18,6 +19,32 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
+  
+  //detail weather button
+  UIButton *detailedWeatherButton = [[UIButton alloc] initWithFrame:CGRectMake(20.0, 100.0, 100.0, 50.0)];
+  [detailedWeatherButton setTitle:@"Details" forState:UIControlStateNormal];
+  detailedWeatherButton.backgroundColor = [UIColor blueColor];
+  [detailedWeatherButton setNeedsLayout];
+  [detailedWeatherButton layoutIfNeeded];
+  [self.view addSubview:detailedWeatherButton];
+  [detailedWeatherButton addTarget:self
+               action:@selector(showWeatherDetails)
+     forControlEvents:UIControlEventTouchUpInside];
+  
+  UILabel *cityInfo = [[UILabel alloc] initWithFrame:CGRectMake(50.0,200.0,300.0,100.0)];
+
+  //city info from city class
+  NSString *cityName = [self.city getCityName];
+  NSString *condition = [self.city getCondition];
+  
+  //city info label
+  cityInfo.text = [NSString stringWithFormat:@"%@ %@", cityName, condition];
+  cityInfo.textColor = [UIColor blueColor];
+  cityInfo.backgroundColor = [UIColor whiteColor];
+  cityInfo.lineBreakMode = NSLineBreakByWordWrapping;
+  cityInfo.numberOfLines = 0;
+  [self.view addSubview:cityInfo];
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,13 +53,13 @@
 }
 
 - (void)showWeatherDetails {
+  
+//  show detailed weather
   LHWDetailedViewController *detailedVC = [[LHWDetailedViewController alloc] init];
-//  detailedVC.currentTemp = 20;
-//  detailedVC.chanceOfPrecip = 50;
-//  detailedVC.currentTime = [NSDate date];
   [self.navigationController pushViewController:detailedVC animated:YES];
   
 }
+
 
 /*
  #pragma mark - Navigation
@@ -43,5 +70,4 @@
  // Pass the selected object to the new view controller.
  }
  */
-
 @end

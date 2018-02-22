@@ -17,33 +17,42 @@
     // Your code goes here
     // Don't forget to assign the window a rootViewController
   
-  LHWCity *vancouver = [[LHWCity alloc] init];
-  vancouver.condition = @"Snowy";
+  //calling city class to hard code conditions
+  LHWCity *vancouver = [[LHWCity alloc] initWithCityName:@"Vancouver"];
+  [vancouver enterCondition:@"snowy ❄️"];
   
-  LHWCity *losAngeles = [[LHWCity alloc] init];
-  losAngeles.condition = @"sunny";
+  LHWCity *losAngeles = [[LHWCity alloc] initWithCityName:@"Los Angeles"];
+  [losAngeles enterCondition:@"sunny 🌤"];
   
-  LHWCity *dubai = [[LHWCity alloc] init];
-  dubai.condition = @"hot";
+  LHWCity *dubai = [[LHWCity alloc] initWithCityName:@"Dubai"];
+  [dubai enterCondition:@"hot ☀️"];
   
-  LHWCity *london = [[LHWCity alloc] init];
-  london.condition = @"foggy";
+  LHWCity *london = [[LHWCity alloc] initWithCityName:@"London"];
+  [london enterCondition:@"foggy 🌫"];
   
-  LHWCity *tokyo = [[LHWCity alloc] init];
-  tokyo.condition = @"rainy";
+  LHWCity *tokyo = [[LHWCity alloc] initWithCityName:@"Tokyo"];
+  [tokyo enterCondition:@"rainy 🌧"];
 
+  //set root view controller to be tab bar controller
 //  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
   UITabBarController *rootViewController = [[UITabBarController alloc] initWithNibName:nil bundle:nil];
 //  [[UIApplication sharedApplication].keyWindow setRootViewController:rootViewController];
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
-  LHWCityViewController *vancouverVC = [[LHWCityViewController alloc] init];
-  LHWCityViewController *losAngelesVC = [[LHWCityViewController alloc] init];
-  LHWCityViewController *dubaiVC = [[LHWCityViewController alloc] init];
-  LHWCityViewController *londonVC = [[LHWCityViewController alloc] init];
-  LHWCityViewController *tokyoVC = [[LHWCityViewController alloc] init];
-  
+  //attach city class to city view controller
+  LHWCityViewController *vancouverVC = [[LHWCityViewController alloc] initWithNibName:nil bundle:nil];
+  vancouverVC.city = vancouver;
+  LHWCityViewController *losAngelesVC = [[LHWCityViewController alloc] initWithNibName:nil bundle:nil];
+  losAngelesVC.city = losAngeles;
+  LHWCityViewController *dubaiVC = [[LHWCityViewController alloc] initWithNibName:nil bundle:nil];
+  dubaiVC.city = dubai;
+  LHWCityViewController *londonVC = [[LHWCityViewController alloc] initWithNibName:nil bundle:nil];
+  londonVC.city = london;
+  LHWCityViewController *tokyoVC = [[LHWCityViewController alloc] initWithNibName:nil bundle:nil];
+  tokyoVC.city = tokyo;
+
+  //attach city view controller to city nav controller
   UINavigationController *vancouverNC = [[UINavigationController alloc] initWithRootViewController:vancouverVC];
   UINavigationController *losAngelesNC = [[UINavigationController alloc] initWithRootViewController:losAngelesVC];
   UINavigationController *dubaiNC = [[UINavigationController alloc] initWithRootViewController:dubaiVC];
@@ -56,18 +65,12 @@
   londonNC.title = @"London";
   tokyoNC.title = @"Tokyo";
   
+  //attach city nav controller to root view controller (tab bar controller)
   rootViewController.viewControllers = [NSArray arrayWithObjects:vancouverNC, losAngelesNC, dubaiNC, londonNC, tokyoNC, nil];
-
-//  UITabBarItem *vancouverTab = [[UITabBarItem alloc] initWithTitle:@"Vancouver" image:nil tag:0];
-//  UITabBarItem *losAngelesTab = [[UITabBarItem alloc] initWithTitle:@"Los Angeles" image:nil tag:1];
-//  UITabBarItem *dubaiTab = [[UITabBarItem alloc] initWithTitle:@"Dubai" image:nil tag:2];
-//  UITabBarItem *londonTab = [[UITabBarItem alloc] initWithTitle:@"London" image:nil tag:3];
-//  UITabBarItem *tokyoTab = [[UITabBarItem alloc] initWithTitle:@"Tokyo" image:nil tag:4];
-
-  //  rootViewController.viewControllers = [NSArray arrayWithObjects:vancouverNC, losAngelesNC, dubaiNC, londonNC, tokyoNC, nil];
 
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 @end
+

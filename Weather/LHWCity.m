@@ -10,4 +10,27 @@
 
 @implementation LHWCity
 
+- (instancetype)initWithCityName: (NSString *)City
+{
+  self = [super init];
+  if (self) {
+    self.cityName = City;
+  }
+  return self;
+}
+
+//- (void) setCityName: (NSString *)City {
+//  self.cityName = City;
+//}
+- (void) enterCondition: (NSString *)Condition {
+  self.condition = Condition;
+}
+
+- (NSString *) getCityName {
+  return self.cityName;
+}
+- (NSString *) getCondition {
+  return self.condition;
+}
+
 @end

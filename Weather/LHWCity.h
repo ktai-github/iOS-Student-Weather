@@ -13,4 +13,12 @@
 @property (nonatomic) NSString *cityName;
 @property (nonatomic) NSString *condition;
 
+- (instancetype)initWithCityName: (NSString *)City;
+
+//- (void) setCityName: (NSString *)City;
+- (void) enterCondition: (NSString *)Condition;
+
+- (NSString *) getCityName;
+- (NSString *) getCondition;
+
 @end

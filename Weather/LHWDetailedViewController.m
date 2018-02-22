@@ -17,6 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+  
+  //detailed weather label
+  UILabel *weatherInfo = [[UILabel alloc] initWithFrame:CGRectMake(50.0,200.0,300.0,100.0)];
+  weatherInfo.text = [NSString stringWithFormat:@"current temp. %d, chance of precip. %d, current date and time %@", self.currentTemp, self.chanceOfPrecip, self.currentTime];
+  weatherInfo.textColor = [UIColor blueColor];
+  weatherInfo.backgroundColor = [UIColor whiteColor];
+  weatherInfo.lineBreakMode = NSLineBreakByWordWrapping;
+  weatherInfo.numberOfLines = 0;
+  [self.view addSubview:weatherInfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,6 +34,7 @@
 }
 - (instancetype)init
 {
+  //hard code detail weather
   self = [super init];
   if (self) {
     self.currentTemp = 20;

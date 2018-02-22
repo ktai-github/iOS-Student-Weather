@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LHWCity.h"
 
 @interface LHWCityViewController : UIViewController
+
+@property (nonatomic) LHWCity *city;
+
+- (void)showWeatherDetails;
 
 @end
